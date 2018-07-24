@@ -7,11 +7,20 @@ class GameScene: SKScene {
     private var swipeFromColumn: Int?
     private var swipeFromRow: Int?
     private var selectionSprite = SKSpriteNode()
+    private var mySound: SKAction?
     
     // Sound FX
     let swapSound = SKAction.playSoundFileNamed("Chomp.wav", waitForCompletion: false)
     let invalidSwapSound = SKAction.playSoundFileNamed("Error.wav", waitForCompletion: false)
     let matchSound = SKAction.playSoundFileNamed("Ka-Ching.wav", waitForCompletion: false)
+    let matchPig = SKAction.playSoundFileNamed("pig002.wav", waitForCompletion: false)
+    let matchHorse = SKAction.playSoundFileNamed("horse.wav", waitForCompletion: false)
+    let matchSheep = SKAction.playSoundFileNamed("sheep.wav", waitForCompletion: false)
+    let matchChicken = SKAction.playSoundFileNamed("chicken.wav", waitForCompletion: false)
+    let matchGoat = SKAction.playSoundFileNamed("goat.wav", waitForCompletion: false)
+    let matchCow = SKAction.playSoundFileNamed("cow.mp3", waitForCompletion: false)
+
+    
     let fallingCookieSound = SKAction.playSoundFileNamed("Scrape.wav", waitForCompletion: false)
     let addCookieSound = SKAction.playSoundFileNamed("Drip.wav", waitForCompletion: false)
     var level: Level!
@@ -31,11 +40,13 @@ class GameScene: SKScene {
     override init(size: CGSize) {
         super.init(size: size)
         
+        
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
         let background = SKSpriteNode(imageNamed: "Background")
         background.size = size
         addChild(background)
+        gameLayer.isHidden = true
         addChild(gameLayer)
         
         let layerPosition = CGPoint(
@@ -52,7 +63,7 @@ class GameScene: SKScene {
         
         cookiesLayer.position = layerPosition
         cropLayer.addChild(cookiesLayer)
-        
+        let _ = SKLabelNode(fontNamed: "GillSans-BoldItalic")
     }
     
     func addSprites(for cookies: Set<Cookie>) {
@@ -62,6 +73,19 @@ class GameScene: SKScene {
             sprite.position = pointFor(column: cookie.column, row: cookie.row)
             cookiesLayer.addChild(sprite)
             cookie.sprite = sprite
+            // Give each cookie sprite a small, random delay. Then fade them in.
+            sprite.alpha = 0
+            sprite.xScale = 0.5
+            sprite.yScale = 0.5
+            
+            sprite.run(
+                SKAction.sequence([
+                    SKAction.wait(forDuration: 0.25, withRange: 0.5),
+                    SKAction.group([
+                        SKAction.fadeIn(withDuration: 0.25),
+                        SKAction.scale(to: 1.0, duration: 0.25)
+                        ])
+                    ]))
         }
     }
     
@@ -247,7 +271,164 @@ class GameScene: SKScene {
             SKAction.removeFromParent()]))
     }
     
+    func animateInvalidSwap(_ swap: Swap, completion: @escaping () -> Void) {
+        let spriteA = swap.cookieA.sprite!
+        let spriteB = swap.cookieB.sprite!
+        
+        spriteA.zPosition = 100
+        spriteB.zPosition = 90
+        
+        let duration: TimeInterval = 0.2
+        
+        let moveA = SKAction.move(to: spriteB.position, duration: duration)
+        moveA.timingMode = .easeOut
+        
+        let moveB = SKAction.move(to: spriteA.position, duration: duration)
+        moveB.timingMode = .easeOut
+        
+        spriteA.run(SKAction.sequence([moveA, moveB]), completion: completion)
+        spriteB.run(SKAction.sequence([moveB, moveA]))
+        
+        run(invalidSwapSound)
+    }
+    func animateMatchedCookies(for chains: Set<Chain>, completion: @escaping () -> Void) {
+        for chain in chains {
+            animateScore(for: chain)
+            for cookie in chain.cookies {
+                let myboogie = cookie.dougie
+                if myboogie == "pig" {
+                    mySound = matchPig
+                } else if myboogie == "horse" {
+                    mySound = matchHorse
+                } else if myboogie == "sheep" {
+                    mySound = matchSheep
+                } else if myboogie == "rooster" {
+                    mySound = matchChicken
+                } else if myboogie == "goat" {
+                    mySound = matchGoat
+                } else if myboogie == "cow" {
+                    mySound = matchCow
+                } else {
+                    mySound = matchSound
+                }
+                if let sprite = cookie.sprite {
+                    if sprite.action(forKey: "removing") == nil {
+                        let scaleAction = SKAction.scale(to: 0.1, duration: 0.3)
+                        scaleAction.timingMode = .easeOut
+                        sprite.run(SKAction.sequence([scaleAction, SKAction.removeFromParent()]),
+                                   withKey: "removing")
+                    }
+                }
+            }
+        }
+
+        run(mySound!)
+        run(SKAction.wait(forDuration: 0.3), completion: completion)
+    }
     
+    func animateFallingCookies(in columns: [[Cookie]], completion: @escaping () -> Void) {
+        // 1
+        var longestDuration: TimeInterval = 0
+        for array in columns {
+            for (index, cookie) in array.enumerated() {
+                let newPosition = pointFor(column: cookie.column, row: cookie.row)
+                // 2
+                let delay = 0.05 + 0.15 * TimeInterval(index)
+                // 3
+                let sprite = cookie.sprite!   // sprite always exists at this point
+                let duration = TimeInterval(((sprite.position.y - newPosition.y) / tileHeight) * 0.1)
+                // 4
+                longestDuration = max(longestDuration, duration + delay)
+                // 5
+                let moveAction = SKAction.move(to: newPosition, duration: duration)
+                moveAction.timingMode = .easeOut
+                sprite.run(
+                    SKAction.sequence([
+                        SKAction.wait(forDuration: delay),
+                        SKAction.group([moveAction, fallingCookieSound])]))
+            }
+        }
+        
+        // 6
+        run(SKAction.wait(forDuration: longestDuration), completion: completion)
+    }
+    
+    func animateNewCookies(in columns: [[Cookie]], completion: @escaping () -> Void) {
+        // 1
+        var longestDuration: TimeInterval = 0
+        
+        for array in columns {
+            // 2
+            let startRow = array[0].row + 1
+            
+            for (index, cookie) in array.enumerated() {
+                // 3
+                let sprite = SKSpriteNode(imageNamed: cookie.cookieType.spriteName)
+                sprite.size = CGSize(width: tileWidth, height: tileHeight)
+                sprite.position = pointFor(column: cookie.column, row: startRow)
+                cookiesLayer.addChild(sprite)
+                cookie.sprite = sprite
+                // 4
+                let delay = 0.01 + 0.02 * TimeInterval(array.count - index - 1)
+                // 5
+                let duration = TimeInterval(startRow - cookie.row) * 0.05
+                longestDuration = max(longestDuration, duration + delay)
+                // 6
+                let newPosition = pointFor(column: cookie.column, row: cookie.row)
+                let moveAction = SKAction.move(to: newPosition, duration: duration)
+                moveAction.timingMode = .easeOut
+                sprite.alpha = 0
+                sprite.run(
+                    SKAction.sequence([
+                        SKAction.wait(forDuration: delay),
+                        SKAction.group([
+                            SKAction.fadeIn(withDuration: 0.05),
+                            moveAction,
+                            addCookieSound])
+                        ]))
+            }
+        }
+        // 7
+        run(SKAction.wait(forDuration: longestDuration), completion: completion)
+    }
+    func animateScore(for chain: Chain) {
+        // Figure out what the midpoint of the chain is.
+        let firstSprite = chain.firstCookie().sprite!
+        let lastSprite = chain.lastCookie().sprite!
+        let centerPosition = CGPoint(
+            x: (firstSprite.position.x + lastSprite.position.x)/2,
+            y: (firstSprite.position.y + lastSprite.position.y)/2 - 8)
+        
+        // Add a label for the score that slowly floats up.
+        let scoreLabel = SKLabelNode(fontNamed: "GillSans-BoldItalic")
+        scoreLabel.fontSize = 16
+        scoreLabel.text = String(format: "%ld", chain.score)
+        scoreLabel.position = centerPosition
+        scoreLabel.zPosition = 300
+        cookiesLayer.addChild(scoreLabel)
+        
+        let moveAction = SKAction.move(by: CGVector(dx: 0, dy: 3), duration: 0.7)
+        moveAction.timingMode = .easeOut
+        scoreLabel.run(SKAction.sequence([moveAction, SKAction.removeFromParent()]))
+    }
+    
+    func animateGameOver(_ completion: @escaping () -> Void) {
+        let action = SKAction.move(by: CGVector(dx: 0, dy: -size.height), duration: 0.3)
+        action.timingMode = .easeIn
+        gameLayer.run(action, completion: completion)
+    }
+    
+    func animateBeginGame(_ completion: @escaping () -> Void) {
+        gameLayer.isHidden = false
+        gameLayer.position = CGPoint(x: 0, y: size.height)
+        let action = SKAction.move(by: CGVector(dx: 0, dy: -size.height), duration: 0.3)
+        action.timingMode = .easeOut
+        gameLayer.run(action, completion: completion)
+    }
+    func removeAllCookieSprites() {
+        cookiesLayer.removeAllChildren()
+    }
+
     
 }
 

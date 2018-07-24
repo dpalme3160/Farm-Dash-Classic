@@ -13,6 +13,14 @@
 		541A32D720DAD05C00D171CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 541A32D520DAD05C00D171CA /* Main.storyboard */; };
 		541A32D920DAD05F00D171CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 541A32D820DAD05F00D171CA /* Assets.xcassets */; };
 		541A32DC20DAD05F00D171CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 541A32DA20DAD05F00D171CA /* LaunchScreen.storyboard */; };
+		54F107BE21020CB000461040 /* Chain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F107BD21020CB000461040 /* Chain.swift */; };
+		54F107C02103F46E00461040 /* pig002.wav in Resources */ = {isa = PBXBuildFile; fileRef = 54F107BF2103F46E00461040 /* pig002.wav */; };
+		54F107C221040D8C00461040 /* horse.wav in Resources */ = {isa = PBXBuildFile; fileRef = 54F107C121040D8C00461040 /* horse.wav */; };
+		54F107C4210410BD00461040 /* sheep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 54F107C3210410BD00461040 /* sheep.wav */; };
+		54F107C62104117700461040 /* chicken.wav in Resources */ = {isa = PBXBuildFile; fileRef = 54F107C52104117700461040 /* chicken.wav */; };
+		54F107C8210412E700461040 /* goat.wav in Resources */ = {isa = PBXBuildFile; fileRef = 54F107C7210412E700461040 /* goat.wav */; };
+		54F107CA2104142B00461040 /* cow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 54F107C92104142A00461040 /* cow.mp3 */; };
+		54F107CC2105240600461040 /* piglevelwin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 54F107CB2105240600461040 /* piglevelwin.mp3 */; };
 		54F85E5520FECA8A00885847 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F85E5420FECA8A00885847 /* Level.swift */; };
 		54F85E5720FECAF000885847 /* Cookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F85E5620FECAF000885847 /* Cookie.swift */; };
 		54F85E5920FECD5700885847 /* LevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F85E5820FECD5700885847 /* LevelData.swift */; };
@@ -43,6 +51,14 @@
 		541A32D820DAD05F00D171CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		541A32DB20DAD05F00D171CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		541A32DD20DAD05F00D171CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54F107BD21020CB000461040 /* Chain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chain.swift; sourceTree = "<group>"; };
+		54F107BF2103F46E00461040 /* pig002.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pig002.wav; sourceTree = "<group>"; };
+		54F107C121040D8C00461040 /* horse.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = horse.wav; sourceTree = "<group>"; };
+		54F107C3210410BD00461040 /* sheep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sheep.wav; sourceTree = "<group>"; };
+		54F107C52104117700461040 /* chicken.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chicken.wav; sourceTree = "<group>"; };
+		54F107C7210412E700461040 /* goat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = goat.wav; sourceTree = "<group>"; };
+		54F107C92104142A00461040 /* cow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cow.mp3; sourceTree = "<group>"; };
+		54F107CB2105240600461040 /* piglevelwin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = piglevelwin.mp3; sourceTree = "<group>"; };
 		54F85E5420FECA8A00885847 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		54F85E5620FECAF000885847 /* Cookie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cookie.swift; sourceTree = "<group>"; };
 		54F85E5820FECD5700885847 /* LevelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelData.swift; sourceTree = "<group>"; };
@@ -103,6 +119,7 @@
 				54F85E5A20FECD9F00885847 /* Tile.swift */,
 				54F85E5C20FECDC500885847 /* Array2D.swift */,
 				541A32D320DAD05C00D171CA /* GameViewController.swift */,
+				54F107BD21020CB000461040 /* Chain.swift */,
 				541A32D520DAD05C00D171CA /* Main.storyboard */,
 				541A32DA20DAD05F00D171CA /* LaunchScreen.storyboard */,
 				54F85E7820FF7F9200885847 /* Sounds */,
@@ -130,6 +147,13 @@
 		54F85E7820FF7F9200885847 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				54F107CB2105240600461040 /* piglevelwin.mp3 */,
+				54F107C92104142A00461040 /* cow.mp3 */,
+				54F107C7210412E700461040 /* goat.wav */,
+				54F107C52104117700461040 /* chicken.wav */,
+				54F107C3210410BD00461040 /* sheep.wav */,
+				54F107C121040D8C00461040 /* horse.wav */,
+				54F107BF2103F46E00461040 /* pig002.wav */,
 				54F85E7920FF7F9200885847 /* Scrape.wav */,
 				54F85E7A20FF7F9200885847 /* Ka-Ching.wav */,
 				54F85E7B20FF7F9200885847 /* Mining by Moonlight.mp3 */,
@@ -201,12 +225,19 @@
 				54F85E7620FF7F3200885847 /* Level_0.json in Resources */,
 				54F85E8220FF7F9300885847 /* Drip.wav in Resources */,
 				54F85E7520FF7F3200885847 /* Level_4.json in Resources */,
+				54F107C8210412E700461040 /* goat.wav in Resources */,
+				54F107C02103F46E00461040 /* pig002.wav in Resources */,
 				54F85E8020FF7F9300885847 /* Ka-Ching.wav in Resources */,
 				54F85E8320FF7F9300885847 /* Chomp.wav in Resources */,
+				54F107C4210410BD00461040 /* sheep.wav in Resources */,
 				54F85E7320FF7F3200885847 /* Level_2.json in Resources */,
 				541A32D720DAD05C00D171CA /* Main.storyboard in Resources */,
+				54F107CA2104142B00461040 /* cow.mp3 in Resources */,
 				54F85E8120FF7F9300885847 /* Mining by Moonlight.mp3 in Resources */,
 				54F85E7F20FF7F9300885847 /* Scrape.wav in Resources */,
+				54F107C221040D8C00461040 /* horse.wav in Resources */,
+				54F107CC2105240600461040 /* piglevelwin.mp3 in Resources */,
+				54F107C62104117700461040 /* chicken.wav in Resources */,
 				54F85E6820FF7D8800885847 /* Grid.atlas in Resources */,
 				541A32D920DAD05F00D171CA /* Assets.xcassets in Resources */,
 				541A32DC20DAD05F00D171CA /* LaunchScreen.storyboard in Resources */,
@@ -229,6 +260,7 @@
 				541A32D420DAD05C00D171CA /* GameViewController.swift in Sources */,
 				54F85E5B20FECD9F00885847 /* Tile.swift in Sources */,
 				54F85E5720FECAF000885847 /* Cookie.swift in Sources */,
+				54F107BE21020CB000461040 /* Chain.swift in Sources */,
 				54F85E5D20FECDC500885847 /* Array2D.swift in Sources */,
 				54F85E5520FECA8A00885847 /* Level.swift in Sources */,
 				541A32CC20DAD05C00D171CA /* AppDelegate.swift in Sources */,
@@ -379,7 +411,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JP2QBRJS2F;
 				INFOPLIST_FILE = "Farm Dash/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -398,7 +430,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JP2QBRJS2F;
 				INFOPLIST_FILE = "Farm Dash/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

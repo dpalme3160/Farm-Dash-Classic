@@ -3,16 +3,16 @@ import SpriteKit
 // MARK: - CookieType
 enum CookieType: Int {
     
-    case unknown = 0, cow, pig, rooster, donut, macaroon, sugarCookie
+    case unknown = 0, cow, pig, rooster, sheep, goat, horse
     
     var spriteName: String {
         let spriteNames = [
             "Cow",
             "Pig",
             "Rooster",
-            "Donut",
-            "Macaroon",
-            "SugarCookie"]
+            "Sheep",
+            "Goat",
+            "Horse"]
         
         return spriteNames[rawValue - 1]
     }
@@ -36,6 +36,10 @@ class Cookie: CustomStringConvertible, Hashable {
     static func ==(lhs: Cookie, rhs: Cookie) -> Bool {
         return lhs.column == rhs.column && lhs.row == rhs.row
         
+    }
+    
+    var dougie: String {
+        return "\(cookieType)"
     }
     
     var description: String {

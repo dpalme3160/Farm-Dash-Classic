@@ -4,11 +4,16 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
+
+  let defaults = UserDefaults.standard
+  var musicSwitch: Bool = true
+
+    
   // Sound FX
   let swapSound = SKAction.playSoundFileNamed("Chomp.wav", waitForCompletion: false)
   let invalidSwapSound = SKAction.playSoundFileNamed("Error.wav", waitForCompletion: false)
   let matchSound = SKAction.playSoundFileNamed("Ka-Ching.wav", waitForCompletion: false)
-    let matchPig = SKAction.playSoundFileNamed("pig002.wav", waitForCompletion: false)
+  let matchPig = SKAction.playSoundFileNamed("pig002.wav", waitForCompletion: false)
     let matchHorse = SKAction.playSoundFileNamed("horse.wav", waitForCompletion: false)
     let matchSheep = SKAction.playSoundFileNamed("sheep.wav", waitForCompletion: false)
     let matchChicken = SKAction.playSoundFileNamed("chicken.wav", waitForCompletion: false)
@@ -17,6 +22,7 @@ class GameScene: SKScene {
   let fallingCookieSound = SKAction.playSoundFileNamed("Scrape.wav", waitForCompletion: false)
   let addCookieSound = SKAction.playSoundFileNamed("Drip.wav", waitForCompletion: false)
   var level: Level!
+  var settings: GameViewController!
   let tilesLayer = SKNode()
   let cropLayer = SKCropNode()
   let maskLayer = SKNode()
@@ -43,6 +49,7 @@ class GameScene: SKScene {
     anchorPoint = CGPoint(x: 0.5, y: 0.5)
     
     let background = SKSpriteNode(imageNamed: "Background")
+    
     background.size = size
     addChild(background)
     addChild(gameLayer)
@@ -61,9 +68,9 @@ class GameScene: SKScene {
     cropLayer.addChild(cookiesLayer)
     let _ = SKLabelNode(fontNamed: "GillSans-BoldItalic")
   }
-  
-  func addSprites(for cookies: Set<Cookie>) {
-    for cookie in cookies {
+    
+    func addSprites(for cookies: Set<Cookie>) {
+        for cookie in cookies {
       let sprite = SKSpriteNode(imageNamed: cookie.cookieType.spriteName)
       sprite.size = CGSize(width: tileWidth, height: tileHeight)
       sprite.position = pointFor(column: cookie.column, row: cookie.row)
@@ -288,24 +295,28 @@ class GameScene: SKScene {
   }
   
   func animateMatchedCookies(for chains: Set<Chain>, completion: @escaping () -> Void) {
+    if let soundString: String = defaults.string(forKey: "Sound") {
+        musicSwitch = Bool(soundString)!
+    } else {
+        defaults.set(String(musicSwitch), forKey: "Sound")
+    }
     for chain in chains {
       animateScore(for: chain)
       for cookie in chain.cookies {
         let myboogie = cookie.dougie
-        if myboogie == "pig" {
+        if myboogie == "pig" && musicSwitch == true {
             mySound = matchPig
-        } else if myboogie == "horse" {
+        } else if myboogie == "horse" && musicSwitch == true {
             mySound = matchHorse
-        } else if myboogie == "sheep" {
+        } else if myboogie == "sheep" && musicSwitch == true {
             mySound = matchSheep
-        } else if myboogie == "rooster" {
+        } else if myboogie == "rooster" && musicSwitch == true {
             mySound = matchChicken
-        } else if myboogie == "goat" {
+        } else if myboogie == "goat" && musicSwitch == true {
             mySound = matchGoat
-        } else if myboogie == "cow" {
+        } else if myboogie == "cow" && musicSwitch == true {
             mySound = matchCow
-        } else {
-            mySound = matchSound
+            //mySound = matchSound
         }
         if let sprite = cookie.sprite {
           if sprite.action(forKey: "removing") == nil {
@@ -317,7 +328,9 @@ class GameScene: SKScene {
         }
       }
     }
-    run(mySound!)
+    if musicSwitch == true {
+        run(mySound!)
+    }
     run(SKAction.wait(forDuration: 0.3), completion: completion)
   }
   
@@ -386,7 +399,7 @@ class GameScene: SKScene {
     // 7
     run(SKAction.wait(forDuration: longestDuration), completion: completion)
   }
-  
+    
   func animateScore(for chain: Chain) {
     // Figure out what the midpoint of the chain is.
     let firstSprite = chain.firstCookie().sprite!

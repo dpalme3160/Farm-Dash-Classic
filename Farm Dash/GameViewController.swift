@@ -7,31 +7,22 @@ class GameViewController: UIViewController {
   // MARK: Properties
   let Win = SKAction.playSoundFileNamed("piglevelwin.mp3", waitForCompletion: false)
   var bombSoundEffect: AVAudioPlayer?
-    
+    var MyChainCt: Int = 0
     
   // The scene draws the tiles and cookie sprites, and handles swipes.
   var scene: GameScene!
   var level: Level!
-  
+  var settings: SettingsViewController!
+    
   var movesLeft = 0
   var score = 0
+  var totalScore = 0
   var tapGestureRecognizer: UITapGestureRecognizer!
   var currentLevelNum = 1
   let defaults = UserDefaults.standard
-  
-    lazy var backgroundMusic: AVAudioPlayer? = {
-    guard let url = Bundle.main.url(forResource: "Mining by Moonlight", withExtension: "mp3")
-        else {
-      return nil
-    }
-    do {
-      let player = try AVAudioPlayer(contentsOf: url)
-      player.numberOfLoops = -1
-      return player
-    } catch {
-      return nil
-    }
-  }()
+  let musicSwitch: Bool = true
+  var soundSwitch: Bool = true
+    
   
   // MARK: IBOutlets
   @IBOutlet weak var gameOverPanel: UIImageView!
@@ -39,8 +30,38 @@ class GameViewController: UIViewController {
   @IBOutlet weak var movesLabel: UILabel!
   @IBOutlet weak var scoreLabel: UILabel!
   @IBOutlet weak var shuffleButton: UIButton!
-  
+    
+    
+    lazy var backgroundMusic: AVAudioPlayer? = {
+        guard let url = Bundle.main.url(forResource: "Mining by Moonlight", withExtension: "mp3")
+            else {
+                return nil
+        }
+        do {
+            let player = try AVAudioPlayer(contentsOf: url)
+            player.numberOfLoops = -1
+            return player
+        } catch {
+            return nil
+        }
+    }()
+    
     @IBOutlet weak var levelLabel: UILabel!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // Start the background music.
+        if let ourString: String = defaults.string(forKey: "BGMusic") {
+            if Bool(ourString) == true {
+                backgroundMusic?.play()
+            } else {
+                backgroundMusic?.stop()
+            }
+        }
+        if let ourSound: String = defaults.string(forKey: "Sound") {
+            soundSwitch = Bool(ourSound)!
+        }
+    }
+    
     override func viewDidLoad() {
     super.viewDidLoad()
     // get settings from userdefaults
@@ -50,13 +71,13 @@ class GameViewController: UIViewController {
         //} else {
             //defaults.set(currentLevelNum, forKey: "Level")
         //}
+    
         // Setup view with level 1
-    setupLevel(number: currentLevelNum)
+        setupLevel(number: currentLevelNum)
+        
+
     
-    // Start the background music.
-    backgroundMusic?.play()
-  }
-    
+    }
   func setupLevel(number levelNumber: Int) {
     let skView = view as! SKView
     skView.isMultipleTouchEnabled = false
@@ -100,6 +121,7 @@ class GameViewController: UIViewController {
   func beginGame() {
     movesLeft = level.maximumMoves
     score = 0
+    totalScore = 0
     updateLabels()
     level.resetComboMultiplier()
     scene.animateBeginGame {
@@ -134,8 +156,12 @@ class GameViewController: UIViewController {
   func handleMatches() {
     let chains = level.removeMatches()
     if chains.count == 0 {
+        MyChainCt = 0
       beginNextTurn()
       return
+    } else {
+        MyChainCt += 1
+        print(MyChainCt)
     }
     
     scene.animateMatchedCookies(for: chains) {
@@ -164,6 +190,7 @@ class GameViewController: UIViewController {
     targetLabel.text = String(format: "%ld", level.targetScore)
     movesLabel.text = String(format: "%ld", movesLeft)
     scoreLabel.text = String(format: "%ld", score)
+
   }
   
   func decrementMoves() {

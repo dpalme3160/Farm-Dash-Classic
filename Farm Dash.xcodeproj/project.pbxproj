@@ -7,12 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5406DF1D211B4E2F00B5B5F4 /* Level_16.json in Resources */ = {isa = PBXBuildFile; fileRef = 5406DF0F211B4E2E00B5B5F4 /* Level_16.json */; };
+		5406DF1E211B4E2F00B5B5F4 /* Level_21.json in Resources */ = {isa = PBXBuildFile; fileRef = 5406DF10211B4E2E00B5B5F4 /* Level_21.json */; };
+		5406DF1F211B4E2F00B5B5F4 /* Level_20.json in Resources */ = {isa = PBXBuildFile; fileRef = 5406DF11211B4E2E00B5B5F4 /* Level_20.json */; };
+		5406DF20211B4E2F00B5B5F4 /* Level_14.json in Resources */ = {isa = PBXBuildFile; fileRef = 5406DF12211B4E2E00B5B5F4 /* Level_14.json */; };
+		5406DF21211B4E2F00B5B5F4 /* Level_25.json in Resources */ = {isa = PBXBuildFile; fileRef = 5406DF13211B4E2E00B5B5F4 /* Level_25.json */; };
+		5406DF22211B4E2F00B5B5F4 /* Level_22.json in Resources */ = {isa = PBXBuildFile; fileRef = 5406DF14211B4E2E00B5B5F4 /* Level_22.json */; };
+		5406DF23211B4E2F00B5B5F4 /* Level_13.json in Resources */ = {isa = PBXBuildFile; fileRef = 5406DF15211B4E2E00B5B5F4 /* Level_13.json */; };
+		5406DF24211B4E2F00B5B5F4 /* Level_19.json in Resources */ = {isa = PBXBuildFile; fileRef = 5406DF16211B4E2E00B5B5F4 /* Level_19.json */; };
+		5406DF25211B4E2F00B5B5F4 /* Level_18.json in Resources */ = {isa = PBXBuildFile; fileRef = 5406DF17211B4E2E00B5B5F4 /* Level_18.json */; };
+		5406DF26211B4E2F00B5B5F4 /* Level_23.json in Resources */ = {isa = PBXBuildFile; fileRef = 5406DF18211B4E2E00B5B5F4 /* Level_23.json */; };
+		5406DF27211B4E2F00B5B5F4 /* Level_17.json in Resources */ = {isa = PBXBuildFile; fileRef = 5406DF19211B4E2E00B5B5F4 /* Level_17.json */; };
+		5406DF28211B4E2F00B5B5F4 /* Level_15.json in Resources */ = {isa = PBXBuildFile; fileRef = 5406DF1A211B4E2E00B5B5F4 /* Level_15.json */; };
+		5406DF29211B4E2F00B5B5F4 /* Level_24.json in Resources */ = {isa = PBXBuildFile; fileRef = 5406DF1B211B4E2E00B5B5F4 /* Level_24.json */; };
+		5406DF2A211B4E2F00B5B5F4 /* Level_12.json in Resources */ = {isa = PBXBuildFile; fileRef = 5406DF1C211B4E2E00B5B5F4 /* Level_12.json */; };
 		541A32CC20DAD05C00D171CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541A32CB20DAD05C00D171CA /* AppDelegate.swift */; };
 		541A32D220DAD05C00D171CA /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541A32D120DAD05C00D171CA /* GameScene.swift */; };
 		541A32D420DAD05C00D171CA /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541A32D320DAD05C00D171CA /* GameViewController.swift */; };
 		541A32D920DAD05F00D171CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 541A32D820DAD05F00D171CA /* Assets.xcassets */; };
 		541A32DC20DAD05F00D171CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 541A32DA20DAD05F00D171CA /* LaunchScreen.storyboard */; };
 		542E8834210FE9E100FE6878 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 542E8833210FE9E100FE6878 /* CloudKit.framework */; };
+		542E885C2111437C00FE6878 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542E885B2111437C00FE6878 /* SettingsViewController.swift */; };
 		54F107BE21020CB000461040 /* Chain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F107BD21020CB000461040 /* Chain.swift */; };
 		54F107C02103F46E00461040 /* pig002.wav in Resources */ = {isa = PBXBuildFile; fileRef = 54F107BF2103F46E00461040 /* pig002.wav */; };
 		54F107C221040D8C00461040 /* horse.wav in Resources */ = {isa = PBXBuildFile; fileRef = 54F107C121040D8C00461040 /* horse.wav */; };
@@ -51,6 +66,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5406DF0F211B4E2E00B5B5F4 /* Level_16.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_16.json; sourceTree = "<group>"; };
+		5406DF10211B4E2E00B5B5F4 /* Level_21.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_21.json; sourceTree = "<group>"; };
+		5406DF11211B4E2E00B5B5F4 /* Level_20.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_20.json; sourceTree = "<group>"; };
+		5406DF12211B4E2E00B5B5F4 /* Level_14.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_14.json; sourceTree = "<group>"; };
+		5406DF13211B4E2E00B5B5F4 /* Level_25.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_25.json; sourceTree = "<group>"; };
+		5406DF14211B4E2E00B5B5F4 /* Level_22.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_22.json; sourceTree = "<group>"; };
+		5406DF15211B4E2E00B5B5F4 /* Level_13.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_13.json; sourceTree = "<group>"; };
+		5406DF16211B4E2E00B5B5F4 /* Level_19.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_19.json; sourceTree = "<group>"; };
+		5406DF17211B4E2E00B5B5F4 /* Level_18.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_18.json; sourceTree = "<group>"; };
+		5406DF18211B4E2E00B5B5F4 /* Level_23.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_23.json; sourceTree = "<group>"; };
+		5406DF19211B4E2E00B5B5F4 /* Level_17.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_17.json; sourceTree = "<group>"; };
+		5406DF1A211B4E2E00B5B5F4 /* Level_15.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_15.json; sourceTree = "<group>"; };
+		5406DF1B211B4E2E00B5B5F4 /* Level_24.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_24.json; sourceTree = "<group>"; };
+		5406DF1C211B4E2E00B5B5F4 /* Level_12.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_12.json; sourceTree = "<group>"; };
 		541A32C820DAD05C00D171CA /* Farm Dash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Farm Dash.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		541A32CB20DAD05C00D171CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		541A32D120DAD05C00D171CA /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -60,6 +89,7 @@
 		541A32DD20DAD05F00D171CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		542E8831210FE9DA00FE6878 /* Farm Dash.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Farm Dash.entitlements"; sourceTree = "<group>"; };
 		542E8833210FE9E100FE6878 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		542E885B2111437C00FE6878 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		54F107BD21020CB000461040 /* Chain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chain.swift; sourceTree = "<group>"; };
 		54F107BF2103F46E00461040 /* pig002.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pig002.wav; sourceTree = "<group>"; };
 		54F107C121040D8C00461040 /* horse.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = horse.wav; sourceTree = "<group>"; };
@@ -130,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				542E8831210FE9DA00FE6878 /* Farm Dash.entitlements */,
+				542E885B2111437C00FE6878 /* SettingsViewController.swift */,
 				541A32D120DAD05C00D171CA /* GameScene.swift */,
 				54F85E8520FFBCED00885847 /* Swap.swift */,
 				54F85E5420FECA8A00885847 /* Level.swift */,
@@ -175,6 +206,20 @@
 				54F107E8210A391200461040 /* Level_9.json */,
 				54F107EA210A391200461040 /* Level_10.json */,
 				54F107E6210A391200461040 /* Level_11.json */,
+				5406DF1C211B4E2E00B5B5F4 /* Level_12.json */,
+				5406DF15211B4E2E00B5B5F4 /* Level_13.json */,
+				5406DF12211B4E2E00B5B5F4 /* Level_14.json */,
+				5406DF1A211B4E2E00B5B5F4 /* Level_15.json */,
+				5406DF0F211B4E2E00B5B5F4 /* Level_16.json */,
+				5406DF19211B4E2E00B5B5F4 /* Level_17.json */,
+				5406DF17211B4E2E00B5B5F4 /* Level_18.json */,
+				5406DF16211B4E2E00B5B5F4 /* Level_19.json */,
+				5406DF11211B4E2E00B5B5F4 /* Level_20.json */,
+				5406DF10211B4E2E00B5B5F4 /* Level_21.json */,
+				5406DF14211B4E2E00B5B5F4 /* Level_22.json */,
+				5406DF18211B4E2E00B5B5F4 /* Level_23.json */,
+				5406DF1B211B4E2E00B5B5F4 /* Level_24.json */,
+				5406DF13211B4E2E00B5B5F4 /* Level_25.json */,
 			);
 			path = Levels;
 			sourceTree = "<group>";
@@ -269,32 +314,46 @@
 				54F85E8220FF7F9300885847 /* Drip.wav in Resources */,
 				54F107C8210412E700461040 /* goat.wav in Resources */,
 				54F107C02103F46E00461040 /* pig002.wav in Resources */,
+				5406DF27211B4E2F00B5B5F4 /* Level_17.json in Resources */,
 				54F85E8020FF7F9300885847 /* Ka-Ching.wav in Resources */,
 				54F85E8320FF7F9300885847 /* Chomp.wav in Resources */,
 				54F107EB210A391200461040 /* Level_7.json in Resources */,
 				54F107C4210410BD00461040 /* sheep.wav in Resources */,
+				5406DF23211B4E2F00B5B5F4 /* Level_13.json in Resources */,
 				54F107EE210A391200461040 /* Level_9.json in Resources */,
 				54F107EF210A391200461040 /* Level_6.json in Resources */,
 				54F85E7320FF7F3200885847 /* Level_2.json in Resources */,
 				54F107CA2104142B00461040 /* cow.mp3 in Resources */,
+				5406DF28211B4E2F00B5B5F4 /* Level_15.json in Resources */,
+				5406DF2A211B4E2F00B5B5F4 /* Level_12.json in Resources */,
 				54F107ED210A391200461040 /* Level_8.json in Resources */,
 				54F85E8120FF7F9300885847 /* Mining by Moonlight.mp3 in Resources */,
 				54F85E7F20FF7F9300885847 /* Scrape.wav in Resources */,
+				5406DF20211B4E2F00B5B5F4 /* Level_14.json in Resources */,
+				5406DF26211B4E2F00B5B5F4 /* Level_23.json in Resources */,
+				5406DF1E211B4E2F00B5B5F4 /* Level_21.json in Resources */,
 				54F107D22109FE6D00461040 /* Main.storyboard in Resources */,
 				54F107E2210A329F00461040 /* Level_3.json in Resources */,
 				54F107F0210A391200461040 /* Level_10.json in Resources */,
 				54F107C221040D8C00461040 /* horse.wav in Resources */,
+				5406DF1F211B4E2F00B5B5F4 /* Level_20.json in Resources */,
 				54F107CC2105240600461040 /* piglevelwin.mp3 in Resources */,
 				54F107C62104117700461040 /* chicken.wav in Resources */,
 				54F107E4210A329F00461040 /* Level_5.json in Resources */,
 				54F85E6820FF7D8800885847 /* Grid.atlas in Resources */,
+				5406DF1D211B4E2F00B5B5F4 /* Level_16.json in Resources */,
 				54F107E3210A329F00461040 /* Level_4.json in Resources */,
 				541A32D920DAD05F00D171CA /* Assets.xcassets in Resources */,
 				541A32DC20DAD05F00D171CA /* LaunchScreen.storyboard in Resources */,
 				54F85E7720FF7F3200885847 /* Level_1.json in Resources */,
+				5406DF24211B4E2F00B5B5F4 /* Level_19.json in Resources */,
 				54F85E6620FF7D7B00885847 /* Sprites.atlas in Resources */,
+				5406DF22211B4E2F00B5B5F4 /* Level_22.json in Resources */,
+				5406DF21211B4E2F00B5B5F4 /* Level_25.json in Resources */,
+				5406DF29211B4E2F00B5B5F4 /* Level_24.json in Resources */,
 				54F107EC210A391200461040 /* Level_11.json in Resources */,
 				54F85E8420FF7F9300885847 /* Error.wav in Resources */,
+				5406DF25211B4E2F00B5B5F4 /* Level_18.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +366,7 @@
 			files = (
 				54F85E5920FECD5700885847 /* LevelData.swift in Sources */,
 				541A32D220DAD05C00D171CA /* GameScene.swift in Sources */,
+				542E885C2111437C00FE6878 /* SettingsViewController.swift in Sources */,
 				541A32D420DAD05C00D171CA /* GameViewController.swift in Sources */,
 				54F85E5B20FECD9F00885847 /* Tile.swift in Sources */,
 				54F85E5720FECAF000885847 /* Cookie.swift in Sources */,
